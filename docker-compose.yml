@@ -1,0 +1,25 @@
+services:
+  sleepn-api:
+    container_name: sleepn-api
+    image: sleepn-api
+    environment:
+      - INFURA_RPC=${INFURA_RPC}
+      - PRIVATE_KEY=${PRIVATE_KEY}
+      - SECRETS_JWT=${SECRETS_JWT}
+      - DATABASE_URL=${DATABASE_URL}
+      - FITBIT_CLIENT_ID=${FITBIT_CLIENT_ID}
+      - FITBIT_CLIENT_SECRET=${FITBIT_CLIENT_SECRET}
+      - FITBIT_CODE_VERIFIER=${FITBIT_CODE_VERIFIER}
+      - FITBIT_CODE_CHALLENGE=${FITBIT_CODE_CHALLENGE}
+      - MAGIC_LINK_API_KEY=${MAGIC_LINK_API_KEY}
+      - MAGIC_LINK_SECRET_KEY=${MAGIC_LINK_SECRET_KEY}
+      - GOOGLE_SHEET_ID=${GOOGLE_SHEET_ID}
+      - GOOGLE_ACCOUNT_EMAIL=${GOOGLE_ACCOUNT_EMAIL}
+      - GOOGLE_ACCOUNT_PRIVATE_KEY=${GOOGLE_ACCOUNT_PRIVATE_KEY}
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+    build:
+      dockerfile: Dockerfile
+    
